@@ -69,7 +69,7 @@ def load_state_names(fileLoc):
     file = open(fileLoc, 'r')
     for line in file:
         a = line.split(',')
-        state_names[a[1][0:2]] = a[0] # The substring is to exclude the \n char 
+        state_names[a[1][0:2]] = a[0] # The substring is to exclude the \n char from the key
 
 def bluesclues(abbr):
     return state_names[abbr]
