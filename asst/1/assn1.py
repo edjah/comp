@@ -53,23 +53,22 @@ def sortcat(n, *args):
         n = len(args)
 
     # Sorting the args in order of length
-    strings = []
-    for string in args:
-        strings.append((len(string), string))
-    strings = sorted(strings, key=lambda item: item[0], reverse=True)
+    strings = sorted(args, key=len, reverse=True)
 
     # Concatenating the n longest strings together
     retval = ''
     for i in strings[0:n]:
-        retval += i[1]
+        retval += i
     return retval
+
+
 
 state_names = {}
 def load_state_names(fileLoc):
     file = open(fileLoc, 'r')
     for line in file:
         a = line.split(',')
-        state_names[a[1][0:2]] = a[0] # The substring is to exclude the \n char from the key
+        state_names[a[1][0:2]] = a[0] # The substring of a[1] is to exclude the \n char from the key
 
 def bluesclues(abbr):
     return state_names[abbr]
