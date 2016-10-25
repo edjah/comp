@@ -48,17 +48,9 @@ def swapchars(string):
 
 
 def sortcat(n, *args):
-    # Using all strings if the first argument was -1
-    if n == -1:
-        n = len(args)
-
-    # Sorting the args in order of length
-    strings = sorted(args, key=len, reverse=True)
-
-    # Concatenating the n longest strings together
+    if n == -1: n = len(args);
     retval = ''
-    for i in strings[0:n]:
-        retval += i
+    for i in sorted(args, key=len, reverse=True)[0:n]: retval += i;
     return retval
 
 
